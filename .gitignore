@@ -8,6 +8,7 @@
 __pycache__/
 *.pyc
 *.pyo
+venv/   
 
 # Node.js
 node_modules/
