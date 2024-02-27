@@ -20,24 +20,21 @@ from scipy.stats import norm
 
 
 def d1(S, K, T, r, sigma):
-    """Calculates d1 of the Black-Scholes-Merton model."""
     return (math.log(S / K) + (r + 0.5 * sigma**2) * T) / (sigma * math.sqrt(T))
 
 
 def d2(S, K, T, r, sigma):
-    """Calculates d2 of the Black-Scholes-Merton model."""
     return d1(S, K, T, r, sigma) - sigma * math.sqrt(T)
 
 
 def bsm_call_value(S, K, T, r, sigma):
-    """Calculates the price of a European call option using BSM."""
     N_d1 = norm.cdf(d1(S, K, T, r, sigma))
     N_d2 = norm.cdf(d2(S, K, T, r, sigma))
-    return S * N_d1 - K * math.exp(-r * T) * N_d2
+    fair_value = S * N_d1 - K * math.exp(-r * T) * N_d2
+    return fair_value
 
 
 def bsm_put_value(S, K, T, r, sigma):
-    """Calculates the price of a European put option using BSM."""
     N_d1 = norm.cdf(-d1(S, K, T, r, sigma))
     N_d2 = norm.cdf(-d2(S, K, T, r, sigma))
     return K * math.exp(-r * T) * N_d2 - S * N_d1
