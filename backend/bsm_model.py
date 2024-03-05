@@ -1,6 +1,11 @@
 import math
 from scipy.stats import norm
 
+# estimate the fair value of options
+# The fair value of an option is a theoretical estimate of its proper price in the market, given
+# certain known variables. It represents what the option should be worth based on factors like the current price of the underlying asset, the strike price, time until
+# expiration, volatility of the underlying asset, and the risk-free interest rate
+
 # S: Current stock price
 # K: Strike price
 # T: Time to expiration (in years)
